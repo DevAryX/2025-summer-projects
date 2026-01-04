@@ -1,0 +1,21 @@
+# Ignore OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore build or output directories (if added later)
+dist/
+build/
+.cache/
+
+# Ignore npm packages (if tools added)
+node_modules/
+
+# Optional: environment or secret files
+.env
+
+# Ignore Netlify or Vercel deploy artifacts (if used)
+.netlify/
+.vercel/

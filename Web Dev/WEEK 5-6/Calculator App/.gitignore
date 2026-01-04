@@ -1,0 +1,17 @@
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Output or build (future-proofing)
+dist/
+build/
+
+# Package files (if JS tooling added later)
+node_modules/
+
+# Environment files (if added for future APIs)
+.env

@@ -1,0 +1,354 @@
+
+/* =======================
+   CSS RESET & BASE STYLES
+======================= */
+:root {
+  --primary: #0077b6;
+  --secondary: #00b4d8;
+  --accent: #ffcb05;
+  --dark: #111;
+  --light: #f4f4f4;
+  --text: #333;
+  --white: #ffffff;
+  --transition: 0.3s ease;
+  --font-main: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* =======================
+   HEADER
+======================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em 2em;
+  background-color: var(--dark);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+body.dark header {
+  background-color: #1a1a1a;
+}
+
+.logo {
+  height: 40px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5em 0;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* =======================
+   DARK MODE TOGGLE
+======================= */
+#toggle-dark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+/* =======================
+   LOADING SPINNER
+======================= */
+#loader-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 5px solid #ccc;
+  border-top: 5px solid var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2em;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: var(--white);
+  text-align: center;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+  padding: 1em;
+}
+
+.hero-img {
+  flex: 1 1 300px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cta-button {
+  background: var(--white);
+  color: var(--primary);
+  padding: 0.8em 1.4em;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background var(--transition);
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.cta-button:hover {
+  background: #e0e0e0;
+}
+
+/* =======================
+   FEATURES SECTION
+======================= */
+.features {
+  padding: 3em 2em;
+  background-color: var(--white);
+  text-align: center;
+}
+
+body.dark .features {
+  background-color: #1f1f1f;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.feature {
+  background: #f9f9f9;
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform var(--transition);
+  text-align: left;
+}
+
+body.dark .feature {
+  background-color: #2b2b2b;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+/* =======================
+   SIGNUP SECTION
+======================= */
+.signup {
+  padding: 2em;
+  background-color: var(--primary);
+  color: var(--white);
+  text-align: center;
+}
+
+.signup input {
+  padding: 0.8em;
+  margin: 0.5em;
+  width: 250px;
+  max-width: 90%;
+  border: none;
+  border-radius: 5px;
+}
+
+.signup button {
+  padding: 0.8em 1.4em;
+  background-color: var(--white);
+  color: var(--primary);
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.signup button:hover {
+  background-color: #f1f1f1;
+}
+
+/* =======================
+   MODAL
+======================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--white);
+  color: var(--text);
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+body.dark footer {
+  background-color: #1a1a1a;
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   MEDIA QUERIES
+======================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img {
+    margin-top: 2em;
+  }
+
+  .feature {
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0.5em;
+  }
+
+  #toggle-dark {
+    bottom: 10px;
+    right: 10px;
+  }
+}

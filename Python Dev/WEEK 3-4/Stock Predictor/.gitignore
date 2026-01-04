@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment files
+.env
+.venv/
+env/
+venv/
+
+# Editor and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Avoid accidentally committing large downloaded data
+*.csv
+*.xlsx
+
+# Matplotlib plots and figures (if saved)
+*.png
+*.jpg
+*.svg

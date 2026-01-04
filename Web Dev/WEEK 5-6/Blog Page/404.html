@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 Not Found | Arham’s Dev Journal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root {
+      --light-bg: #fcfafa;
+      --light-card: #ffffff;
+      --dark-bg: #181818;
+      --dark-card: #222;
+      --text-light: #444;
+      --text-dark: #f1f1f1;
+      --accent: #6c63ff;
+      --accent-hover: #4ecca3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1e1e2f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-hover);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: var(--accent-hover);
+    }
+
+    .error-container {
+      flex-grow: 1;
+      padding-top: 7rem;
+      text-align: center;
+    }
+
+    .error-container h1 {
+      font-size: 5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .error-container p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .error-container a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .error-container a:hover {
+      background: var(--accent-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .error-container h1 {
+        font-size: 3.5rem;
+      }
+
+      .error-container p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Arham’s Dev Blog</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html">Posts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="error-container">
+    <h1>404</h1>
+    <p>Oops — the page you’re looking for doesn’t exist.</p>
+    <a href="index.html">Go Back Home</a>
+  </main>
+
+  <footer>
+    &copy; 2025 Arham Hamid. Keep exploring.
+  </footer>
+
+  <button class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+
+  <script>
+    $(document).ready(function () {
+      const darkModeKey = "blogDarkMode";
+      if (localStorage.getItem(darkModeKey) === "true") {
+        $("body").addClass("dark");
+      }
+
+      $(".dark-toggle").on("click", function () {
+        $("body").toggleClass("dark");
+        localStorage.setItem(darkModeKey, $("body").hasClass("dark"));
+      });
+    });
+  </script>
+</body>
+</html>

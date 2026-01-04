@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Posts | Arham’s Dev Journal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root {
+      --light-bg: #fcfafa;
+      --light-card: #ffffff;
+      --dark-bg: #181818;
+      --dark-card: #222;
+      --text-light: #444;
+      --text-dark: #f1f1f1;
+      --accent: #6c63ff;
+      --accent-hover: #4ecca3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e1e2f;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 6rem 1rem 1rem; /* top padding increased from 1rem to 6rem */
+}
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-hover);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: var(--accent-hover);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .post {
+      background: var(--light-card);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark .post {
+      background: var(--dark-card);
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .post h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .post .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .post p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .post h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Arham’s Dev Blog</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html">Posts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="post">
+      <img src="images/blog1.png" alt="Calculator Post">
+      <h2>How I Built a PWA Calculator</h2>
+      <div class="meta">Posted on July 2, 2025 • Tools: HTML, JS, Math.js</div>
+      <p>SmartCalc was my first proper shot at mixing clean design with real functionality. I gave it dark mode, full keyboard input, scientific buttons, and even a history feature using localStorage.</p>
+      <p>One of the coolest parts was hooking it up with math.js. That saved me from writing messy parsing logic and made the whole thing way more powerful.</p>
+      <p>For me, this wasn’t just about making a calculator - it was about building *my own tool* that actually felt smooth and usable. I’d used loads of clunky online calculators before, and I thought, “Why not just make something better myself?”</p>
+      <p>I hit plenty of little roadblocks along the way - from float precision headaches to making keyboard shortcuts work without wrecking the UI. But honestly, that’s where the real learning happened. Every bug taught me something new.</p>
+      <p>The highlight? Seeing it run offline for the first time after setting up the manifest and service worker. That tiny “Install” prompt felt like I’d just unlocked an achievement.</p>
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">PWA</span>
+        <span class="tag">UI/UX</span>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="images/blog2.png" alt="Dark Mode Post">
+      <h2>Dark Mode Toggle with jQuery</h2>
+      <div class="meta">Posted on July 3, 2025 • UX Focused</div>
+      <p>I built a smooth, animated dark mode toggle with just a few lines of jQuery. It remembers your choice with localStorage, so even if you come back later, your preference sticks.</p>
+      <p>Dark mode isn’t just about the vibe - it’s about accessibility and making late-night browsing way easier on the eyes.</p>
+      <p>I’ve always been the type to flip on dark mode the second I see it as an option, so it only made sense that my blog respected that too. For me, it wasn’t about chasing a trend - it was about making the experience feel natural.</p>
+      <p>The toggle started off super plain, but I kept playing around with the animations and positioning until it felt smooth. Little things like that - the transitions, the saved preferences - make the whole site feel more personal.</p>
+      <p>Looking back, it’s crazy how just a handful of lines of jQuery can make a site feel so much more alive.</p>
+      <div class="tags">
+        <span class="tag">jQuery</span>
+        <span class="tag">Dark Mode</span>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="images/blog3.png" alt="Design Principles Post">
+      <h2>Blog Design Principles</h2>
+      <div class="meta">Posted on July 4, 2025 • Design</div>
+      <p>I stick to three core principles when it comes to blog layout: whitespace, mobile-first design, and a consistent color scheme. You can see all of that baked into this site.</p>
+      <p>This project really helped me get comfortable with flexbox, grid systems, spacing, and figuring out how to balance looks with usability.</p>
+      <p>For me, designing this blog wasn’t just about “making it look nice.” I wanted it to feel calm, almost like stepping into a personal space. That’s why I leaned into big, open spacing - I can’t stand cluttered layouts that feel like they’re trying too hard.</p>
+      <p>I built it mobile-first, mainly because that’s how I read most blogs myself - on my phone, usually while stretched out on the couch. If it didn’t feel good there, it didn’t belong in the design.</p>
+      <p>The toughest part was locking in the color scheme. I went through a few versions before landing on something that wasn’t too loud but still had personality. Deep purples and cool tones just felt right in the end.</p>
+      <div class="tags">
+        <span class="tag">Design</span>
+        <span class="tag">Mobile-First</span>
+        <span class="tag">Best Practices</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Arham Hamid. Built with HTML, CSS, JS, and jQuery.
+  </footer>
+
+  <!-- Floating dark mode button -->
+  <button class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+
+  <script>
+    $(document).ready(function () {
+      const darkModeKey = "blogDarkMode";
+      if (localStorage.getItem(darkModeKey) === "true") {
+        $("body").addClass("dark");
+      }
+
+      $(".dark-toggle").on("click", function () {
+        $("body").toggleClass("dark");
+        localStorage.setItem(darkModeKey, $("body").hasClass("dark"));
+      });
+    });
+  </script>
+</body>
+</html>

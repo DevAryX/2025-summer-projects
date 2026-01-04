@@ -1,0 +1,19 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+
+# Editor and OS config
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# User-generated or fallback housing data
+housing.csv

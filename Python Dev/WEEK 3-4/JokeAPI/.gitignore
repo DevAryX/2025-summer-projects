@@ -1,0 +1,33 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment and dependency management
+.env
+.venv/
+env/
+venv/
+Pipfile.lock
+poetry.lock
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log or runtime files
+*.log
+*.sqlite3
+chat_log.txt
+*.csv
+*.json
+*.db
+
+# Jupyter and temporary
+*.ipynb_checkpoints/
+*.tmp

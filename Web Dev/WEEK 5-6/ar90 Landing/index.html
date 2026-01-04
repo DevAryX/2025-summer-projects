@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0077b6">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium wireless earbuds with ANC, 48-hour battery, and smart controls." />
+  <meta property="og:title" content="AR90 Ultra's – Wireless Earbuds" />
+  <meta property="og:image" content="images/earbuds.png" />
+  <meta property="og:description" content="Premium wireless earbuds with ANC, 48-hour battery, and touch controls." />
+  <title>AR90 Ultra's - Redefining Sound</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Loading Spinner -->
+  <div id="loader-wrapper"><div class="loader"></div></div>
+
+  <!-- Dark Mode Toggle -->
+  <button id="toggle-dark" aria-label="Toggle Dark Mode">🌙</button>
+
+  <!-- Header -->
+  <header>
+    <img src="images/logo.png" alt="AR90 Logo" class="logo">
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="specs.html">Specs</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="#contact">Buy Now</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text fade-in-up">
+      <h1>AR90 Ultra's</h1>
+      <p>Wireless Earbuds. Noise Canceling. Crystal Clear Sound.</p>
+      <a href="#contact" class="cta-button">Order Yours</a>
+    </div>
+    <img src="images/earbuds.png" alt="AR90 Ultra Earbuds" class="hero-img fade-in-up" />
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <img src="images/feature1.png" alt="Dual Driver Audio">
+        <p>Dual-driver system with deep bass and crisp treble.</p>
+      </div>
+      <div class="feature">
+        <img src="images/feature2.png" alt="Battery Life Icon">
+        <p>Up to 48 hours battery life with fast charging.</p>
+      </div>
+      <div class="feature">
+        <img src="images/feature3.png" alt="Water Resistance">
+        <p>Water & sweat resistant for your active lifestyle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy Now Modal -->
+  <div id="purchase-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2>Ready to Buy?</h2>
+      <p>Reserve your AR90 Ultra's today for exclusive launch pricing.</p>
+      <a href="#contact" class="cta-button">Proceed</a>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <section id="contact" class="signup">
+    <h2>Reserve Your Pair</h2>
+    <form id="signup-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <button type="submit">Notify Me</button>
+      <p id="form-response"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 AR90 Audio Technologies</p>
+    <small>Designed by Arham – Built with Python.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

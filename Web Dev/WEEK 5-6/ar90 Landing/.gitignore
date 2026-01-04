@@ -1,0 +1,18 @@
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Node/npm temp files (if you add tooling later)
+node_modules/
+dist/
+build/
+
+# Optional: env or API keys
+.env
+
+# Optional: macOS quick look thumbnails
+._*

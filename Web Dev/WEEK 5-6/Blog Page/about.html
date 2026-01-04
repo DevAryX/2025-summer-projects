@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Arham’s Dev Journal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root {
+      --light-bg: #fcfafa;
+      --light-card: #ffffff;
+      --dark-bg: #181818;
+      --dark-card: #222;
+      --text-light: #444;
+      --text-dark: #f1f1f1;
+      --accent: #6c63ff;
+      --accent-hover: #4ecca3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1e1e2f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-hover);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: var(--accent-hover);
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 7rem 2rem 3rem;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-list {
+      margin-top: 2rem;
+    }
+
+    .skills-list h3 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+
+    .skills-list ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skills-list li {
+      background: var(--accent);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .skills-list ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Arham’s Dev Blog</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html">Posts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="about-container">
+    <h1 class="about-title">About Me</h1>
+    <div class="about-text">
+      <p>Hey, I’m Arham - a 17-year-old Scottish developer with a passion for clean code, smooth UI, and solving real problems. I started my coding journey by building small projects in Python and JavaScript, and quickly got hooked on turning ideas into working tools.</p>
+
+      <p>This blog is where I document my growth as a developer, share what I learn, and reflect on how tech shapes the way we think and create. Every post here is a snapshot of my curiosity, whether it's about building a PWA, adding dark mode with jQuery, or refining UI layouts from scratch.</p>
+
+      <p>When I’m not coding, I’m in the gym, studying for school, studying cybersecurity and Software, working at the family takeaway, or playing basketball and MMA with my close circle. I’m deeply inspired by faith, discipline, and legacy, and I believe good tech should be functional, beautiful, and halal.</p>
+
+      <p>Stick around, there’s more to come.</p>
+    </div>
+
+    <div class="skills-list">
+      <h3>Languages & Tools I Use:</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+        <li>Python</li>
+        <li>Math.js</li>
+        <li>PWA APIs</li>
+        <li>GitHub</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Arham Hamid. Built with Code and Hard Work.
+  </footer>
+
+  <button class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+
+  <script>
+    $(document).ready(function () {
+      const darkModeKey = "blogDarkMode";
+      if (localStorage.getItem(darkModeKey) === "true") {
+        $("body").addClass("dark");
+      }
+
+      $(".dark-toggle").on("click", function () {
+        $("body").toggleClass("dark");
+        localStorage.setItem(darkModeKey, $("body").hasClass("dark"));
+      });
+    });
+  </script>
+</body>
+</html>
